@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>empList</title>
+</head>
+<body>
+<div th:insert="header.html"></div>
+
+
+
+
+<table id ="table_id">
+
+<thead>
+
+<tr>
+<td>FirstName</td>
+<td>LastName</td>
+<td>Company</td>
+<td>Phone</td>
+<td>Country</td>
+<td>City</td>
+<td>Action</td>
+
+</tr>
+
+</thead>
+<tbody>
+<tr th:each="emp:${emplist}">
+<td>[[${emp.fname}]]</td>
+<td>[[${emp.lname}]]</td>
+<td>[[${emp.companyName}]]</td>
+<td>[[${emp.phone}]]</td>
+<td>[[${emp.address.country}]]</td>
+<td>[[${emp.address.city}]]</td>
+<td>
+<a th:href="@{/edit?(id=${emp.id})}"><input class="btn btn-success" type ="submit" value="edit"></a>
+<a th:href="@{/delete?(id=${emp.id})}"><input  class="btn btn-success" type ="submit" value="delete"></a>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+<script type="text/javascript">
+
+$(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+
+</script>
+
+
+</body>
+</html>

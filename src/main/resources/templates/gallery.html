@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://www.thymeleaf.org">
+<meta charset="ISO-8859-1">
+<title>gallery</title>
+</head>
+<body>
+
+<div th:insert="header.html"></div>
+
+
+<span th : each = "imgname:${imgName}">
+
+<img alt ="${imgname}" src ="@{''/images}">
+
+
+
+
+</span>
+
+</body>
+</html>
